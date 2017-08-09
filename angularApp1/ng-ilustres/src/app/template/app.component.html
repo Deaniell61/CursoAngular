@@ -1,0 +1,13 @@
+<div class="header">
+  <h1 class="title">{{title}} </h1>
+  
+  <nav class="nav">
+     <a  routerLinkActive="active"
+          [routerLink]="[ 'dashboard' ]">Dashboard</a>
+     <a  routerLinkActive="active"
+          [routerLink]="[ 'list' ]">Characters</a>
+   </nav>
+</div>
+    
+  <router-outlet></router-outlet>
+

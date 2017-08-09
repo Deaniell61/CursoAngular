@@ -1,0 +1,29 @@
+.nav{
+  text-align: center;
+  padding-bottom: 30px;
+}
+.nav a{
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: gray;
+  border-radius: 5px;
+}
+.nav a:hover{
+  padding: 15px;
+  color: white;
+  background-color: black;
+}
+
+.nav .active{
+  padding: 15px;
+  color: white;
+  background-color: black;
+}
+
+.title{
+  text-align: center;
+}
+.header{
+  background-color: #eee;
+}
