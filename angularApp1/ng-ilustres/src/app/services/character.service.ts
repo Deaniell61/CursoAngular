@@ -4,14 +4,18 @@ import { Http } from "@angular/http";
 
 import "rxjs/add/operator/toPromise";
 import "rxjs/add/operator/map";
-import "./../../config.json"
 
 import { HistorialCharacter } from '../classes/historicalCharacter'
 
 @Injectable()
 export class CharacterService {
     
-    private basePath = 'http://localhost:3008'
+    //private basePath = 'http://localhost:3008'
+
+    private basePath = require('../global.config');
+
+    
+
 
     constructor(private http:Http){
 
