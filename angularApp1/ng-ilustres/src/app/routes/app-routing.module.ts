@@ -6,6 +6,7 @@ import { CharacterPreviewComponent } from "../components/historical-character-pr
 import { ListCharactersComponent } from "../components/list-historical-caracters.component";
 import { DashboardComponent } from "../components/dashboard.component";
 import { NotFoundComponent } from "../components/not-found.component";
+import { CreateCharacterComponent } from "../components/new-character.component";
 import { AppComponent } from "../app.component";
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: CharacterDetailComponent
+  },
+  {
+    path: 'create',
+    component: CreateCharacterComponent
   },
   {
     path: '',

@@ -8,21 +8,7 @@ import { CharacterService } from "../services/character.service";
 import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'character-detail',
-  template: `
-  <div *ngIf="character">
-  Hola mi nombre es {{character.name}}
-  <br>
-
-  <div>
-    <label>id</label>
-    {{character.id}} <br>
-    <label>nombre</label>
-    <input [(ngModel)] = "character.name" placeholder="nombre">
-  </div>
-    
-    <button (click)="goBack()">Regresar</button>
-    <button (click)="goToDetail()">Guardar</button>
-</div>`
+  templateUrl: './../template/historical-character.component.html'
 })
 
 export class CharacterDetailComponent implements OnInit {
@@ -42,7 +28,9 @@ export class CharacterDetailComponent implements OnInit {
         .subscribe(character => this.character = character);
     }
       
-
+    submitForm(formValue:any){
+      console.log(formValue)
+    }
     goBack(): void {
       this.location.back();
     }
