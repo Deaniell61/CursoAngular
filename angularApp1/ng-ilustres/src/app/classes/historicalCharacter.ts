@@ -1,6 +1,6 @@
-export class HistorialCharacter{
-  id:number
-  name:string
-  description?:string
-  picture:string
+export class HistoricalCharacter {
+  id:number;
+  name:string;
+  bio?:string;
+  avatar?:string;
 }

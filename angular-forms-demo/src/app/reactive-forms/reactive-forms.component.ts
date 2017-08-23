@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup,Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+
+class User {
+  firstName:string;
+  lastName:string;
+  gender?:string;
+  hikin?:boolean;
+  running?:boolean;
+  swimming?:boolean;
+}
 
 @Component({
   selector: 'app-reactive-forms',
@@ -8,17 +17,24 @@ import { FormBuilder,FormGroup,Validators } from "@angular/forms";
 })
 export class ReactiveFormsComponent implements OnInit {
   reactiveForm: FormGroup;
-  constructor( private fb:FormBuilder ) {
-      this.reactiveForm = fb.group({
-        'firstname':[null,Validators.compose([Validators.required,Validators.minLength(3)])],
-        'lastname': '',
-        'gender':'male',
-        'hiking':false,
-        'running':false,
-        'swimming':true
-      })
-    }
+  newUser: User;
 
+  constructor(private fb:FormBuilder) { 
+    this.reactiveForm = fb.group({
+      'firstName': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(8)]) ],
+      'lastName' : [null, Validators.required],
+      'gender': 'Male',
+      'hiking' : false,
+      'running' : true,
+      'swimming' : false
+    })
+  }
+
+    submitForm(formValue:any) {
+      debugger;
+      this.newUser = formValue;
+      console.log(this.newUser);
+    }
   ngOnInit() {
   }
 

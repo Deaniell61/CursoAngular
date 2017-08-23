@@ -1,37 +1,38 @@
-import { Component,Input,OnInit } from '@angular/core'
-import  { HistorialCharacter  } from '../classes/historicalCharacter'
-import { Router,ParamMap,ActivatedRoute } from "@angular/router";
-import { Location } from "@angular/common";
-
-import { CharacterService } from "../services/character.service";
-
+import { init } from 'protractor/built/launcher';
+import {Component, Input, OnInit} from '@angular/core';
+import { HistoricalCharacter } from '../classes/historicalCharacter';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
+import { CharacterService } from '../services/character.service';
+
 @Component({
-  selector: 'character-detail',
-  templateUrl: './../template/historical-character.component.html'
+    moduleId: module.id,
+    selector: 'character-detail',
+    templateUrl: '../templates/historical-character-detail.component.html'
+    
 })
 
 export class CharacterDetailComponent implements OnInit {
-    @Input() character:HistorialCharacter
+    @Input() character:HistoricalCharacter;
 
     constructor(
-        private router:Router,
-        private route:ActivatedRoute,
-        private location:Location,
-        private characterService:CharacterService){
+        private route: ActivatedRoute,
+        private location: Location,
+        private characterService: CharacterService
+    ){}
 
+    goBack() {
+        this.location.back();
     }
 
-    ngOnInit(): void {
-      this.route.params
-        .switchMap((params: ParamMap) => this.characterService.getHistoricalCharacter(+params['id']))
-        .subscribe(character => this.character = character);
-    }
-      
-    submitForm(formValue:any){
-      console.log(formValue)
-    }
-    goBack(): void {
-      this.location.back();
+
+    ngOnInit() {
+        this.route.params
+            .switchMap((params:Params) => 
+            this.characterService.getHistoricalCharacter(+params['idCharacter']))
+            .subscribe(character => {
+                this.character = character
+            })
     }
 }

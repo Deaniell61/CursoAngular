@@ -9,9 +9,10 @@ export class TemplateFormsComponent implements OnInit {
 
   constructor() { }
 
-  submitForm(formValue:any){
-    console.log(formValue)
+  submitForm(formValue:any) {
+    console.log(formValue);
   }
+
   ngOnInit() {
   }
 

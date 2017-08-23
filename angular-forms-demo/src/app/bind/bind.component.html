@@ -8,11 +8,12 @@
     
       <div class="form-group">
         <label for="box">Ingreso de valores</label>
-        <input type="text" class="form-control" #box
+        <input type="text" class="form-control" #caja
                name="box" placeholder="Input field">
       </div>
     
-      <button class="btn btn-primary" (click)="showValue(box.value, $event)">Haz Click!</button>
+      <button class="btn btn-primary" 
+              (click)="showValue(caja.value, $event)">Haz Click!</button>
       <br/> <br/>
       <pre>
         {{showMessage}}
@@ -58,8 +59,7 @@
         <label for="keyValue">Todo List</label>
         <input type="text" class="form-control" #todoItem
                placeholder="Todo Item" 
-               (keyup.enter) = "addTodo(todoItem.value,$event)"
-               (blur)="addTodo(todoItem.value,$event)">
+               (keyup.enter) = "addTodo(todoItem.value,$event)">
       </div>
       
       <button type="button" class="btn btn-success" 

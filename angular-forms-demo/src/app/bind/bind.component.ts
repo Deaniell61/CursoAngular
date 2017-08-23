@@ -6,38 +6,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bind.component.css']
 })
 export class BindComponent implements OnInit {
-
-  showMessage="";
-  onKeyUpMessage="";
-  onKeyEnterMessage="";
-  onBlurMessage="";
+  showMessage = '';
+  onKeyUpMessage = '';
+  onKeyEnterMessage = '';
+  onBlurMessage = '';
   listItems = [];
+
   constructor() { }
 
-  showValue(text:string, $event){
+  showValue(text:string, $event) {
     $event.preventDefault();
     this.showMessage = text;
   }
 
-  onKeyUp(text:string, $event){
-    $event.preventDefault();
+  onKeyUp(text:string, $event) {
     this.onKeyUpMessage = text;
   }
 
-  onKeyEnter(text:string, $event){
+  onKeyEnter(text:string, $event) {
     $event.preventDefault();
     this.onKeyEnterMessage = text;
   }
-
-  onBlur(text:string, $event){
-    $event.preventDefault();
+  onBlur(text:string, $event) {
     this.onBlurMessage = text;
   }
 
-  addTodo(text:string, $event){
+  addTodo(item:string, $event) {
     $event.preventDefault();
-    this.listItems.push(text);
-    $event.target.value='';
+    this.listItems.push(item);
+    $event.target.value ='';
     $event.target.focus;
   }
 
